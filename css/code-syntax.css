@@ -1,0 +1,16 @@
+pre.code-block {
+  font-family: monospace;
+  margin: 0;
+  padding: 5px 1em;
+  color: #000;
+  background-color: #eee;
+}
+span.code-rwd {
+  color: #2b91af;
+}
+span.code-type {
+  color: #00008b;
+}
+span.code-comment {
+  color: #449649;
+}

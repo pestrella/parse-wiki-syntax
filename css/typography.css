@@ -1,0 +1,9 @@
+em.bold {
+  font-weight: bold;
+  font-style: normal;
+  color: #000;
+}
+em.italic {
+  font-style: italic;
+  color: #000;
+}
