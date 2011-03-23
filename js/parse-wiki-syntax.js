@@ -79,6 +79,13 @@
       );
     };
 
+    var doLinks = function (node) {
+      node.html(node.html()
+        .replace(/\[((?:[^\|\[\]]|(?:\\\||\\\[|\\\]))+)\|([^\|\[\]]+)\]/g, '<a href="$2">$1</a>')
+        .replace(/\\/g, '') // then clean up: remove the escape characters
+      );
+    };
+
     var insertCodeBlocks = function (node, arrayOfCodeBlocks) {
       var index = 0;
       while (REGEX_CODE_MARKER.test(node.html())) {
@@ -97,14 +104,18 @@
     };
 
     var addSyntaxHighlighting = function (code) {
-      for (var i = 0; i < CODE_COMMENTS.length; i++) {
-        code = code.replace(CODE_COMMENTS[i], styles.code_comment);
-      }
       for (var i = 0; i < CODE_RESERVED_WORDS.length; i++) {
         code = code.replace(CODE_RESERVED_WORDS[i], styles.code_rwd);
       }
       for (var i = 0; i < CODE_TYPES.length; i++) {
         code = code.replace(CODE_TYPES[i], styles.code_type);
+      }
+      var comments = code.match(CODE_COMMENTS[i]);
+      for (var i = 0; i < CODE_COMMENTS.length; i++) {
+        /* TODO: replace any previous formatting because this whole match
+         * should be a comment and nothing else.
+         */
+        code = code.replace(CODE_COMMENTS[i], styles.code_comment);
       }
       return code;
     };
@@ -125,6 +136,7 @@
       /* do regular syntax parsing */
       doFonts($(this));
       doParagraphs($(this));
+      doLinks($(this));
 
       /* insert code blocks back in */
       insertCodeBlocks($(this), arrayOfCodeBlocks);

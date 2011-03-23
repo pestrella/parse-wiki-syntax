@@ -5,12 +5,13 @@ Support
 So far only supports:
 - *bold*
 - _italic_
+- [hyperlinks|http://github.com]
 - line breaks create new paragraphs
 - {code} block
 
 Instructions:
 1. download dependencies:
-  -  jQuery 1.5.1
+  - jQuery 1.5.1
   - sprintf (http://plugins.jquery.com/project/printf)
 
 2. copy Javascript and CSS source to your porject
