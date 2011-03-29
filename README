@@ -14,7 +14,7 @@ Instructions:
   - jQuery 1.5.1
   - sprintf (http://plugins.jquery.com/project/printf)
 
-2. copy Javascript and CSS source to your porject
+2. copy Javascript and CSS source to your project
   - js/parseWikiSyntax.js
   - css/*
 
